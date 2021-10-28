@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./docker/PhpApache
+      dockerfile: Dockerfile
+    container_name: apache_php_8
+    ports:
+      - 8080:80
+    volumes:
+      - ./html/:/var/www/html
+    tty: true
+  db:
+    image: mysql
+    container_name: mysql
+    volumes:
+      - ./db/:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+    tty: true
+
