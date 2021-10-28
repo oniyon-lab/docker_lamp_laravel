@@ -8,7 +8,9 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./html/:/var/www/html
+      # srcディレクトリに案件毎のgitリポジトリを置く想定
+      # 例ではhtmlディレクトリとしているが、適宜変更する。
+      - ./src/html/:/var/www/html
     tty: true
   db:
     image: mysql
