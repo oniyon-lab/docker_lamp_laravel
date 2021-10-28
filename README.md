@@ -1,7 +1,10 @@
 # docker_lamp_laravel
 
 ■ 動作確認方法
-1. 下記ファイルを設置  
+1. 下記ファイルを設置 
+      * srcディレクトリに案件毎のgitリポジトリを置く想定
+      * 例ではhtmlディレクトリとしているが、適宜変更する。
+
 src/html/index.php
 ```
 <?php phpinfo();
