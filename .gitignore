@@ -2,3 +2,5 @@
 !/data/mysql/.gitkeep
 /src/*
 !/src/.gitkeep
+/config/key/*
+!/config/key/.gitkeep
