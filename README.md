@@ -1,7 +1,7 @@
 # docker_lamp_laravel
 
 ■ 動作確認方法
-1. 下記ファイルを設置
+1. 下記ファイルを設置  
 src/html/index.php
 ```
 <?php phpinfo();
@@ -17,5 +17,5 @@ docker-compose build
 docker-compose up -d
 ```
 
-4. ブラウザで確認
+4. ブラウザで確認  
 http://localhost:8080
