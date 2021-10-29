@@ -1,4 +1,6 @@
-FROM php:8.0-apache
+#FROM php:8.0-apache
+#php8のdockerイメージだとssl.confの設定が何故か通らない。原因不明。
+FROM php:7.4-apache
 
 # このイメージではapt-getでmysql_pdoを入れられないとのこと。
 # dockerhub参照) https://hub.docker.com/_/php/
@@ -22,9 +24,16 @@ FROM php:8.0-apache
 #XML PHP 拡張
 #-------------------
 
+COPY config/ssl.conf /etc/apache2/sites-available/
+COPY config/key/ssl.key /root/
+COPY config/key/ssl.crt /root/
+
 RUN \
   docker-php-ext-install \
-    pdo_mysql
+    pdo_mysql \ 
+  && rm /etc/apache2/sites-available/default-ssl.conf \
+  && a2enmod ssl \
+  && a2ensite ssl
 #以下イメージに既に入っているっぽい
 #    bcmath \
 #    ctype \
